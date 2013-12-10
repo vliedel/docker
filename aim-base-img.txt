@@ -1,0 +1,18 @@
+FROM ubuntu:quantal
+RUN apt-get update
+
+# Install general things
+RUN apt-get install -y g++ make cmake wget libboost-dev python git-core
+
+# Install omniidl - required for the rur-builder
+RUN apt-get install -y omniidl
+
+# Make sure there is a /opt dir
+RUN mkdir -p /opt
+
+# Get AIM
+RUN cd /opt && git clone --recursive https://github.com/dobots/aim.git && cd aim && make && make install
+
+# Setup workspace
+RUN cd $HOME && mkdir aim_workspace
+ENV AIM_WORKSPACE $HOME/aim_workspace

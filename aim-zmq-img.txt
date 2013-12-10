@@ -1,0 +1,22 @@
+FROM dobots/aim_base
+
+# Install json-spirit-dev - required for zeromq modules
+RUN apt-get install -y libjson-spirit-dev
+
+# Fix boost json parser
+RUN sed -i -e 's/std::make_pair(c.name, Str(b, e))/std::make_pair(c.name, Ptree(Str(b, e)))/' /usr/include/boost/property_tree/detail/json_parser_read.hpp
+
+# Install zeromq
+RUN cd /opt && wget http://download.zeromq.org/zeromq-3.2.4.tar.gz && tar -xf zeromq-3.2.4.tar.gz && cd zeromq-3.2.4/ && ./configure && make && make install
+
+# Add lib path, for some reason it's not included
+ENV LD_LIBRARY_PATH /usr/local/lib
+
+# Install nodejs - required by zmqserver
+RUN cd /opt && git clone https://github.com/joyent/node.git && cd node && git checkout v0.10.22-release && ./configure && make && make install
+
+# Install zmqserver
+RUN cd /opt/aim/zmqserver && make uninstall && rm -r node_modules/ && npm install -d && make install
+
+# Install zmqconnect
+RUN cd /opt/aim/zmqconnect && make && make install
