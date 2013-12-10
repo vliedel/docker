@@ -23,4 +23,6 @@ RUN echo "license_abbreviation=\"LGPLv3\"" >> $HOME/.rur/personal_info.txt
 #export XMPP_NAMESERVER_PASSWORD=
 #export XMPP_NAMESERVER_RESOURCE=
 
-#docker run -e XMPP_NAMESERVER_USERNAME=myname -e XMPP_NAMESERVER_PASSWORD=mypass -e XMPP_NAMESERVER_RESOURCE=myresource -e AIM_WORKSPACE $HOME/aim_workspace
+#docker run -e XMPP_NAMESERVER_USERNAME=myname -e XMPP_NAMESERVER_PASSWORD=mypass -e XMPP_NAMESERVER_RESOURCE=myresource -e AIM_WORKSPACE=/aim_workspace -i -t dobots/aim_dodedodo bash
+
+#apt-get install libjpeg8-dev

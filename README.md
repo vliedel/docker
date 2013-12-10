@@ -10,17 +10,11 @@ This image has ZeroMQ installed, including nameserver and connect program.
 ## Dodedodo image
 This image has the dodedodo nameserver installed, enabling you to manage the modules via XMPP.
 To use the dodedodo nameserver, it is easiest to create an account at the [Dodedodo website](http://www.dodedodo.com).
+Fill in the username and password as environmental variables in the docker run command below.
 Then, start the container by using:
 ```bash
  docker pull dobots/aim_dodedodo
- docker run -i -t dobots/aim_dodedodo bash
-```
-
-And set a few environmental variables in the container's terminal:
-```bash
- export XMPP_NAMESERVER_USERNAME="yourusername"
- export XMPP_NAMESERVER_PASSWORD="yourpassword"
- export XMPP_NAMESERVER_RESOURCE="docker_somename"
+ docker run -e XMPP_NAMESERVER_USERNAME=yourusername -e XMPP_NAMESERVER_PASSWORD=yourpassword -e XMPP_NAMESERVER_RESOURCE=raspberrypi_somename -e AIM_WORKSPACE=/aim_workspace -i -t dobots/aim_dodedodo bash
 ```
 
 Then you can start the dodedodo nameserver:
