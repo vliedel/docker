@@ -29,3 +29,4 @@ Then you can start the dodedodo nameserver:
 ```
 
 And use the Dodedodo website to manage the modules running in your container.
+Note that many modules will not run, since many libraries are missing (to keep the image size small).
