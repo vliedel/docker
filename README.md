@@ -13,7 +13,7 @@ To use the dodedodo nameserver, it is easiest to create an account at the [Doded
 Then, start the container by using:
 ```bash
  docker pull dobots/aim_dodedodo
- docker run -i -t dobots/dodedodo bash
+ docker run -i -t dobots/aim_dodedodo bash
 ```
 
 And set a few environmental variables in the container's terminal:
