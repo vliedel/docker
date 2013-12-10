@@ -2,7 +2,7 @@ FROM dobots/aim_zmq
 
 # Install and clean up swiften
 RUN apt-get install -y libssl-dev
-RUN cd /opt && git clone git://swift.im/swift && cd swift && ./scons Swiften && ./scons SWIFTEN_INSTALLDIR=/usr/local /usr/local && cp /opt/swift/3rdParty/Boost/libSwiften_Boost.a /usr/local/lib && rm -rf /opt/swift
+RUN cd /opt && git clone git://swift.im/swift && cd swift && ./scons Swiften && ./scons SWIFTEN_INSTALLDIR=/usr /usr && cp /opt/swift/3rdParty/Boost/libSwiften_Boost.a /usr/lib && rm -rf /opt/swift
 
 # Install and clean up dodedodo
 RUN cd /opt && git clone https://bitbucket.org/mhulscher/dodedodo-raspberry.git && cd dodedodo-raspberry && make && make install && rm -rf /opt/dodedodo-raspberry
@@ -23,3 +23,4 @@ RUN echo "license_abbreviation=\"LGPLv3\"" >> $HOME/.rur/personal_info.txt
 #export XMPP_NAMESERVER_PASSWORD=
 #export XMPP_NAMESERVER_RESOURCE=
 
+#docker run -e XMPP_NAMESERVER_USERNAME=myname -e XMPP_NAMESERVER_PASSWORD=mypass -e XMPP_NAMESERVER_RESOURCE=myresource -e AIM_WORKSPACE $HOME/aim_workspace

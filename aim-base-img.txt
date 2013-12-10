@@ -15,4 +15,4 @@ RUN cd /opt && git clone --recursive https://github.com/dobots/aim.git && cd aim
 
 # Setup workspace
 RUN cd $HOME && mkdir aim_workspace
-ENV AIM_WORKSPACE $HOME/aim_workspace
+#ENV AIM_WORKSPACE $HOME/aim_workspace
