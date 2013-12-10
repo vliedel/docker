@@ -1,5 +1,5 @@
 # Docker AIM images
-With these [docker](http://www.docker.io) files, images can be made to run [AIM](http://dobots.github.io/aim) Modules.
+With these [docker](http://www.docker.io) files, images can be made to run [AIM](http://dobots.github.io/aim) Modules. There are several images, so you can choose the one you like.
 
 ## Base image
 This image has the AIM tools installed, enabling you to create, compile and run modules. You still have to install a middleware (like ROS, YARP or ZeroMQ) to connect the modules.
