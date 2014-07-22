@@ -11,8 +11,8 @@ RUN apt-get install -y omniidl
 RUN mkdir -p /opt
 
 # Get AIM
-RUN cd /opt && git clone --recursive https://github.com/dobots/aim.git && cd aim && make && make install
+RUN cd /opt && git clone --recursive https://github.com/dobots/aim.git && cd aim && make aimtools rur-builder && make aimtools.install rur-builder.install
 
 # Setup workspace
 RUN cd $HOME && mkdir aim_workspace
-#ENV AIM_WORKSPACE $HOME/aim_workspace
+ENV AIM_WORKSPACE $HOME/aim_workspace
