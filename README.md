@@ -24,7 +24,14 @@ sudo docker pull dobots/aim_dodedodo
 sudo docker run -e XMPP_NAMESERVER_USERNAME=$DODEDODO_USERNAME -e XMPP_NAMESERVER_PASSWORD=$DODEDODO_PASSWORD -e XMPP_NAMESERVER_RESOURCE=$DODEDODO_RESOURCE -e AIM_WORKSPACE=/aim_workspace -i -t dobots/aim_dodedodo bash
 ```
 
-You can see if the environmental variables came through by typing `env` in the docker.
+If you need to expose one of the block-devices to your docker, you will need to virtualize it too. For example, for the [RFXcomModule](https://github.com/mrquincle/aim_modules/tree/master/RFXcomModule) you require a RFXcom device:
+```bash
+--privileged -v /dev/rfxcom:/dev/rfxcom 
+```
+
+You can see a full docker command in `run.sh`. Note that `sudo` is used. As explained in [this askubuntu](http://askubuntu.com/questions/477551/how-can-i-use-docker-without-sudo) answer, it is possible to give non-root access to docker by creating a Unix group `docker`. However, summarized the docker group is root-equivalent. Only when Linux namespaces are improved root privileges for running a container will not be required anymore (see [docker doc](https://docs.docker.com/articles/security/#docker-daemon-attack-surface)). Note, that this is only about running the docker yourself. The programs within the docker are of course not root.
+
+Now you started you docker, you can see the environmental variables that came through by typing `env`.
 
 Then you can start the dodedodo nameserver:
 ```bash
