@@ -1,5 +1,5 @@
-FROM ubuntu:quantal
-RUN apt-get update
+FROM ubuntu:trusty
+RUN apt-get update && apt-get upgrade -y
 
 # Install general things
 RUN apt-get install -y g++ make cmake wget libboost-dev python git-core
