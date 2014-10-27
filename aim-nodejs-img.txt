@@ -1,0 +1,8 @@
+FROM dobots/aim_base
+
+RUN apt-get install -y curl
+
+# Install nodejs and npm, using this: https://gist.github.com/isaacs/579814
+RUN mkdir -p /opt/node-latest-install && cd /opt/node-latest-install && curl http://nodejs.org/dist/node-latest.tar.gz | tar xz --strip-components=1 && ./configure --prefix=/usr/local && make install && rm -r /opt/node-latest-install
+RUN curl https://www.npmjs.org/install.sh | sh
+RUN npm install -g node-gyp

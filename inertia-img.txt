@@ -1,0 +1,6 @@
+FROM dobots/aim_nodejs
+
+RUN cd $HOME && git clone https://github.com/AlexDM0/inertia_agents.git
+RUN cd $HOME/aim_workspace && git clone https://github.com/vliedel/aim_modules.git
+RUN cd $HOME/aim_workspace/aim_modules && aimselect TestModule nodejs && aimmake TestModule && cd TestModule/aim-config/nodejs && node-gyp build && cp build/Release/TestModule.node $HOME/inertia_agents/agents
+
