@@ -16,7 +16,8 @@ RUN cd /opt && wget http://download.zeromq.org/zeromq-3.2.4.tar.gz && tar -xf ze
 RUN cd /opt/aim && make zmqconnect && make zmqconnect.install
 
 # Install & clean up nodejs - required by zmqserver
-RUN cd /opt && git clone https://github.com/joyent/node.git && cd node && git checkout v0.10.22-release && ./configure && make && make install && rm -rf /opt/node
+#RUN cd /opt && git clone https://github.com/joyent/node.git && cd node && git checkout v0.10.22-release && ./configure && make && make install && rm -rf /opt/node
+RUN apt-get install -y nodejs npm && ln -s /usr/bin/nodejs /usr/bin/node
 
 # Install zmqserver
 RUN cd /opt/aim && make zmqserver && make zmqserver.install
