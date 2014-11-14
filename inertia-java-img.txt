@@ -17,6 +17,6 @@ RUN echo "cd /home && java -jar /home/inertia-agents-full.jar /home/local-mas.pr
 
 
 #CMD ["java", "-jar /home/inertia-agents-full.jar /home/local-mas.properties"]
-CMD ["/home/run.sh"]
+CMD ["bash", "/home/run.sh"]
 
 
