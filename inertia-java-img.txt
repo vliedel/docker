@@ -5,14 +5,14 @@ RUN apt-get -y install openjdk-7-jre-headless
 
 # test: get the .jar
 RUN apt-get -y install wget unzip
-RUN cd /home && wget https://www.dropbox.com/s/3spc57qmc22lw41/inertia-mas-20141104.zip?dl=0 && mv inertia-mas-20141104.zip?dl=0 inertia-mas-20141104.zip
-RUN cd /home && unzip inertia-mas-20141104.zip
+#RUN cd /home && wget https://www.dropbox.com/s/3spc57qmc22lw41/inertia-mas-20141104.zip?dl=0 && mv inertia-mas-20141104.zip?dl=0 inertia-mas-20141104.zip
+#RUN cd /home && unzip inertia-mas-20141104.zip
 
 
 EXPOSE 8090
 
 # command to run at start
-RUN echo "cd /home && java -jar /home/inertia-agents-full.jar /home/local-mas.properties" > /home/run.sh && chmod +x /home/run.sh
+RUN echo "cd /home && wget https://www.dropbox.com/s/tifpi398uijdtow/inertia-lch-docker.zip?dl=1 && unzip inertia-lch-docker.zip?dl=1 && java -jar /home/inertia-lch-full.jar /home/eve-calibrate.yaml" > /home/run.sh && chmod +x /home/run.sh
 
 
 
